@@ -1,0 +1,41 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/02/2019
+		Updated:
+		Description: 次方计算：计算x的y次方，x（底数）和y（指数，整数）的值由用户输入。
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>次方计算</title>
+        <script type="text/javascript">
+            var x = parseInt(prompt("请输入一个底数："));
+            var y = parseInt(prompt("请输入一个指数（整数）："));
+            var result = 1;
+            document.write(x + "的" + y + "次方为：");
+            // 先考虑底数的特殊情况。0的任何指数值都没有意义
+            if (x === 0) {
+                document.write("底数为0没有意义！");
+            } else {
+                if (y < 0) {
+                    y *= -1;
+                    for (var i = 1; i <= y; i++) {
+                        result *= x;
+                    }
+                    result = 1 / result;
+                } else {
+                    for (var i = 1; i <= y; i++) {
+                        result *= x;
+                    }
+                }
+                document.write(result);
+            }
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

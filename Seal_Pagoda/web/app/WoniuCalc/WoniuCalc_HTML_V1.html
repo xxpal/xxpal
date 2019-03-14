@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WoniuCalc_HTML表格实现_V1</title>
+</head>
+<body>
+	<!-- 
+		第一个表格（1x2）
+	-->
+	<!-- 
+		<table> cellspacing 属性
+		1、HTML5不支持<table> cellspacing属性。
+		2、cellspacing属性规定单元之间的空间，以像素计。
+		3、若不设置该属性，则其默认值为cellspacing="2"。
+		
+		<table> bgcolor属性：规定表格的背景颜色
+		1、HTML5不支持<table> bgcolor属性，请使用CSS代替。
+		2、HTML4.01中，<table> bgcolor属性已废弃，请使用 CSS 代替。
+		3、颜色的表示有三种方式：
+		- color_name：规定颜色值为颜色名称的背景颜色（如 "red"）。
+		- hex_number：规定颜色值为十六进制值的背景颜色（如 "#ff0000"）。
+		- rgb_number：规定颜色值为RGB代码的背景颜色（如 "rgb(255,0,0)"）。
+
+	-->
+    <table border="0" width="450" align="center" cellspacing="0" bgcolor="#696969">
+        <tr>
+            <td height="30">
+                &nbsp;
+                <font color="red" size="7">●</font>
+                <font color="blue" size="7">●</font>
+                <font color="green" size="7">●</font>
+            </td>
+        </tr>
+        <tr>
+            <td height="70">
+                <table border="0" width="99%" align="center" cellspacing="2" bgcolor="red">
+                    <tr>
+                        <td height="65" bgcolor="#696969"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table border="0" width="450" align="center" cellspacing="4" bgcolor="#696969">
+        <tr bgcolor="#7fffd4">
+            <td height="80" width="25%" align="center"><font size="6" face="微软雅黑">AC</font></td>
+            <td width="25%" align="center"><font size="6" face="微软雅黑">+/-</font></td>
+            <td width="25%" align="center"><font size="6" face="微软雅黑">%</font></td>
+            <td width="25%" align="center"><font size="6" face="微软雅黑">÷</font></td>
+        </tr>
+        <tr bgcolor="#7fffd4">
+            <td height="80" align="center"><font size="6" face="微软雅黑">7</font></td>
+            <td align="center"><font size="6" face="微软雅黑">8</font></td>
+            <td align="center"><font size="6" face="微软雅黑">9</font></td>
+            <td align="center"><font size="6" face="微软雅黑">×</font></td>
+        </tr>
+        <tr bgcolor="#7fffd4">
+            <td height="80" align="center"><font face="微软雅黑" size="6">4</font></td>
+            <td align="center"><font face="微软雅黑" size="6">5</font></td>
+            <td align="center"><font face="微软雅黑" size="6">6</font></td>
+            <td align="center"><font face="微软雅黑" size="6">-</font></td>
+        </tr>
+        <tr bgcolor="#7fffd4">
+            <td height="80" align="center"><font face="微软雅黑" size="6">1</font></td>
+            <td align="center"><font face="微软雅黑" size="6">2</font></td>
+            <td align="center"><font face="微软雅黑" size="6">3</font></td>
+            <td align="center"><font face="微软雅黑" size="6">+</font></td>
+        </tr>
+        <tr bgcolor="#7fffd4">
+            <td height="80" align="center"><font face="微软雅黑" size="6">0</font></td>
+            <td align="center"><font face="微软雅黑" size="6">保留</font></td>
+            <td align="center"><font face="微软雅黑" size="6">.</font></td>
+            <td align="center"><font face="微软雅黑" size="6">=</font></td>
+        </tr>
+    </table>
+</body>
+</html>

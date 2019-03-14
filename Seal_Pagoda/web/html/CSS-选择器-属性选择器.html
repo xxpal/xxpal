@@ -1,0 +1,49 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: 12/26/2018
+		Updated:
+		Description: CSS属性选择器演示
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>CSS属性选择器演示</title>
+		<style>
+			[title] {
+				color: red;
+			}
+
+			[title=baidu] {
+				border: 2px solid blue;
+			}
+
+			input[type="text"] {
+				width: 150px;
+				display: block;
+				margin-bottom: 10px;
+				background-color: lightgrey;
+			}
+
+			input[type="button"] {
+				width: 120px;
+				margin-left: 35px;
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>如下包含title的所有元素均变为红色</h1>
+		<hr />
+		<h2 title="welcome">您好！欢迎来到蜗牛学院！</h2>
+		<a title="woniuxy.com" href="http://www.woniuxy.com/">蜗牛学院官网</a>
+		<p>蜗牛学院，只为成就更好的你！</p>
+		<a title="baidu" href="http://www.woniuxy.com/">百度一下</a>
+		<br />
+		First name: <input type="text" value="Leo">
+		Last name: <input type="text" value="Xie">
+		<input type="button" value="戳我试试!"/>
+	</body>
+
+</html>

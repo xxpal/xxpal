@@ -1,0 +1,83 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: 01/03/2019
+		Updated:
+		Description: 字符串
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>字符串</title>
+        <script>
+            //字符串转换
+            var num = 19;
+            var numStr1 = num.toString();
+            var numStr2 = String(num);
+            var numStr3 = "" + num;
+            document.write(typeof numStr1 + "<br />");
+            document.write(typeof numStr2 + "<br />");
+            document.write(typeof numStr3 + "<br />");
+            
+            //字符串分割
+            var loveStr = "I,love,you,Do,you,love,me";
+            var loveArr = loveStr.split(",");
+            for (var i in loveArr) {
+                document.write(loveArr[i] + "<br />");
+            }
+            var loveArrSub = loveStr.split(",", 3);
+            for (var i in loveArrSub) {
+                document.write(loveArrSub[i] + "&nbsp;");
+            }
+            
+            //字符串的长度
+            document.write("<br />" + loveStr.length + "<br />");
+            
+            //字符串的查找
+            var index1 = loveStr.indexOf("you");       //从头开始查找,找不到返回-1
+            var index2 = loveStr.lastIndexOf("you");   //从尾开始查找,找不到返回-1
+            document.write(index1 + "<br />");
+            document.write(index2 + "<br />");
+            
+            //字符串的替换
+            var loveReplace = loveStr.replace("love", "hate");    //默认只替换第一次找到的
+            var loveReplaceAll = loveStr.replace(/love/g, "hate");
+            document.write(loveReplace + "<br />");
+            document.write(loveReplaceAll + "<br />");
+            
+            //字符查找
+            var theChar = loveStr.charAt(8);
+            var theCharCode = loveStr.charCodeAt(8);
+            document.write(theChar + "<br />");         //o
+            document.write(theCharCode + "<br />");     //111
+            
+            //字符串连接
+            var str1 = "I,love,you!";
+            var str2 = "Do,you,love,me?";
+            var newStr1 = str1 + str2 + "Yes!";
+            var newStr2 = str1.concat(str2);
+            document.write(newStr1 + "<br />");
+            document.write(newStr2 + "<br />");
+            
+            //字符串切割与提取
+            var subStr1 = loveStr.slice(1, 5);      //",lov"，半闭半开[1,5)
+            var subStr2 = loveStr.substring(1, 5);  //",lov"，半闭半开[1,5)
+            var subStr3 = loveStr.substr(1, 5);     //",love",1代表起始位置,5代表长度
+            document.write(subStr1 + "<br />");
+            document.write(subStr2 + "<br />");
+            document.write(subStr3 + "<br />");
+            
+            //字符串大小写转换
+            var lowerStr = loveStr.toLowerCase();
+            var upperStr = loveStr.toUpperCase();
+            document.write(lowerStr + "<br />");
+            document.write(upperStr + "<br />");
+            
+        </script>
+	</head>
+
+	<body>
+		
+	</body>
+
+</html>

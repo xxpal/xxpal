@@ -1,0 +1,73 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: 03/05/2019
+		Updated:
+		Description: 判断某一字符串是否能被转换成有效的数字
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>字符串判断</title>
+        <script type="text/javascript">
+            /* 从键盘输入一个字符串，判断其能否被转换成为一个有效的数字。
+            1. 字符串只能包含0~9、小数点、负号/正号，否则则不能转换
+                ASCII码：0~9（48~57）；+（43）；-（45）；.（46）
+            2. 如果满足第一点，则还必须满足如下规则：
+                1）该字符串中最多只允许一个负号/正号，否则无效
+                2）该字符传中最多只允许一个小数点，否则无效
+                3）负号/正号只允许出现在该字符串的首位，否则无效
+                4）小数点只能出现在正号/负号的后面，否则无效
+                5）小数点不应该出现在该字符串的末尾（可以讨论）
+            */
+            var str = prompt("Please input a string: ");
+            var convertible = true;     // 定义标识,可转换则为true,否则为false
+            var plus_sign = 0;          // 用于统计字符串中正号的数量
+            var minus_sign = 0;         // 用于统计字符串中负号的数量
+            var dot_sign = 0;           // 用于统计字符传中小数点的数量
+            
+            for (var i=0; i<str.length; i++) {
+                var c = str.charCodeAt(i)   // 依次获取每个字符的ASCII码
+                
+                // 若字符不为0~9的数字或正/负号或小数点,则不能做转换
+                if ((c>=0 && c<43) || c>58 || c==44 || c==47) {
+                    convertible = false;
+                    document.write("It's an invalid string to be converted to a number.");
+                    break;
+                }
+                // 统计正号出现的次数
+                if(c==43) {
+                    plus_sign++;
+                }
+                // 统计负号出现的次数
+                if(c==45) {
+                    minus_sign++;
+                }
+                // 统计小数点出现的次数
+                if(c==46) {
+                    dot_sign++;
+                }
+                // 若正号/负号/小数点出现次数超过一次或者正负号同时出现,则不能做转换
+                if(plus_sign>1 || minus_sign>1 || dot_sign>1 || (plus_sign==1 && minus_sign==1)) {
+                    convertible = false;
+                    document.write("Too many signs, cannot be converted to a number.");
+                    break;
+                }
+            }
+            
+            if(convertible) {
+                if((plus_sign==1 && str.charCodeAt(0)!=43) || (minus_sign==1 && str.charCodeAt(0)!=45)) {
+                    convertible = false;
+                    document.write("Plus/Minus sign is not at the beginning of the string, cannot be converted to a number.");
+                } else {
+                    document.write("This string is convertible.")
+                }
+            }
+        </script>
+	</head>
+
+	<body>
+		
+	</body>
+
+</html>

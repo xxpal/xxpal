@@ -1,0 +1,28 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: MM/DD/YYYY
+		Updated:
+		Description: 
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>DOM-Class查找</title>
+	</head>
+
+	<body>
+		<div class="my-style">这是第一个div</div>
+        <div class="my-style">这是第二个div</div>
+        <div class="my-style">这是第三个div</div>
+        <hr />
+        <script>
+            var allDiv = document.getElementsByClassName("my-style");
+            for (var i=0; i<allDiv.length; i++) {
+                document.write("<br />");
+                document.write("div的文本是：" + allDiv[i].innerHTML);
+            }
+        </script>
+	</body>
+
+</html>

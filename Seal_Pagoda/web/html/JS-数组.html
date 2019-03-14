@@ -1,0 +1,116 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: 01/02/2019
+		Updated:
+		Description: 数组操作
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>数组操作</title>
+        <script>
+            var names = ["Jack Ma","Steve Jobs","Bill Gates","Elon Musk"];
+            var ages = [48, 55, 70, 51];
+            //取得数组的第一个元素,下标从0开始
+            document.write("数组的第一个元素是：" + names[0] + "<br />");
+            //取得"Elon Musk"这个元素的下标,如果该元素不存在,则返回-1
+            var name = "Elon Musk";
+            document.write(name + "是该数组的第" + names.indexOf(name) + "个元素。<br />");
+            //获取数组的长度,即:数组所含元素的个数
+            document.write("该数组共有" + names.length + "个元素。<br />");
+            
+            //for循环遍历输出整个数组的值:
+            document.write("for循环遍历输出整个数组的值如下:<br />");
+            for (var i=0; i<names.length; i++) {
+                document.write(names[i] + "<br />");
+            }
+            
+            //for...in循环遍历输出整个数组的值:
+            document.write("for...in循环遍历输出整个数组的值如下:<br />");
+            for (var i in names) {
+                document.write(names[i] + "<br />");
+            }
+            
+            //for循环倒序输出着整个数组的值:
+            document.write("for循环倒序输出着整个数组的值如下:<br />");
+            for (var i=names.length-1; i>=0; i--) {
+                document.write(names[i] + "<br />");
+            }
+            
+            //找到数组中的最大值(针对数字型数组有效):
+            //整体思路:定义一个变量,用于和数组中的每个元素的值进行比较
+            var max = ages[0];
+            for (var i in ages) {
+                if (max < ages[i]) {
+                    max = ages[i];
+                }
+            }
+            document.write("ages数组中元素的最大值为：" + max + "<br />");
+            
+            //不借助其它数组,实现数组的倒序存放
+            //整体思路:第1个元素和最后一个元素交换,第2个元素和倒数第2个元素交换……
+            // 以此循环类推,直到数组的一半位置为止,交换结束
+            var nums = [11, 22, 33, 77, 44, 55, 66];
+            document.write("交换前：" + nums + "<br />");
+            var len = nums.length;
+            for (var i=0; i<=len/2; i++) {
+                var swap = nums[i];
+                nums[i] = nums[len-1-i];
+                nums[len-1-i] = swap;
+            }
+            // nums.reverse();
+            document.write("交换后：" + nums + "<br />");
+            
+            //删除数组中的某一个元素
+            /*整体思路:
+            1、JS提供了pop()方法删除数组中的最后一个元素,push()方法在数组末尾增加一个元素
+            2、若要删除index=i位置上的元素，可以考虑先将index=i上的元素值保存在一个变量中，
+            然后将位置i+1处元素的值赋值给位置i上的元素，位置i+2处元素的值赋值给位置i+1上的元素
+            以此类推（即：将从位置i开始，将所有的元素往前挪一个位置），这样数组的最后一个位置就空出来了。
+            */
+           var letters = ["a", "b", "c", "d", "e", "f", "g"];
+           document.write("删除前：" + letters + "<br />");
+           var index = 2;   //删除index=2位置的元素(即：数组中的第三个元素)
+           var temp = letters[index];   //先将index=2上的元素保存在一个临时变量中
+           //用for循环实现位置i后的所有元素分别往前挪一位
+           for (var i=index; i<letters.length-1; i++) {
+               letters[i] = letters[i+1];
+           }
+           document.write("平移后：" + letters + "<br />");
+           letters[i] = temp;
+           letters.pop();
+           document.write("删除后：" + letters + "<br />");
+           // letters.splice(2, 1);
+           
+           //将两个数组连接在一起成为一个数组
+           /*总体思路：新建第三个数组，前部分存放第一个数组的内容，后部分存放第二个数组内容
+           */
+          var array1 = [1, 2, 3, 4, 5];
+          var array2 = ["a", "b", "c", "d", "e"];
+          var newArray = new Array();
+          for (i=0; i<array1.length; i++) {
+              newArray[i] = array1[i];
+          }
+          for (j=0; j<array2.length; j++, i++) {
+              newArray[i] = array2[j];
+          }
+          // newArray = array1.concat(array2);
+          document.write("两个数组连接后：" + newArray + "<br />");
+
+           //二维数组
+           var students = [
+               ["Jack Ma","Alibaba"],
+               ["Steve Jobs", "Apple"],
+               ["Bill Gates", "Microsoft"],
+               ["Elon Musk", "Tesla"]
+           ];
+           document.write(students[3][1])
+        </script>
+	</head>
+
+	<body>
+		
+	</body>
+
+</html>

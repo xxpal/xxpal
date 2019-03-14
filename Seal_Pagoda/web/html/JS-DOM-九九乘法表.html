@@ -1,0 +1,53 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/04/2019
+		Updated:
+		Description: 九九乘法表：JS+DOM+DIV实现
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>九九乘法表</title>
+        <script>
+            //创建元素级div,用于存放每个值
+            function createCellDiv() {
+                var cellDivNode = document.createElement("div");
+                cellDivNode.style.backgroundColor = "lightsalmon";
+                cellDivNode.style.width = "90px";
+                cellDivNode.style.height = "30px";
+                cellDivNode.style.fontSize = "20px";
+                cellDivNode.style.fontFamily = "Arial";
+                // cellDivNode.style.border = "1px solid white";
+                cellDivNode.style.float = "left";
+                return cellDivNode;
+            }
+            //创建一个行级div,用于存放一行值
+            function createRowDiv() {
+                var rowDivNode = document.createElement("div");
+                rowDivNode.style.backgroundColor = "lightgrey";
+                rowDivNode.style.width = "810px";
+                rowDivNode.style.height = "30px";
+                rowDivNode.style.border = "0px solid blue";
+                rowDivNode.style.margin = "auto";
+                return rowDivNode;
+            }
+            //用于生成乘法表,并在页面中显示
+            function generateTable() {
+                for (var i = 1; i <= 9; i++) {
+                    var row = createRowDiv();
+                    for (j = 1; j < i + 1; j++) {
+                        var cell = createCellDiv();
+                        cell.innerHTML = j + "×" + i + "=" + i * j;
+                        row.appendChild(cell);  //将cell div放入一个row div
+                    }
+                    document.body.appendChild(row); //将row div放入body
+                }
+            }
+        </script>
+    </head>
+
+    <body onload="generateTable()">
+    </body>
+
+</html>

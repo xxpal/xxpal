@@ -1,0 +1,33 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: MM/DD/YYYY
+		Updated:
+		Description: 
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>新增DOM元素</title>
+        
+        <script>
+            function add() {
+                for (var i=1; i<=20; i++) {
+                    var myDiv = document.createElement("div");
+                    myDiv.style.width = "100px";
+                    myDiv.style.height = "50px";
+                    myDiv.style.backgroundColor = "orangered";
+                    myDiv.style.position = "fixed";
+                    myDiv.style.left = Math.random() * 1200 + "px";
+                    myDiv.style.top = Math.random() * 800 + "px";
+                    document.body.appendChild(myDiv);
+                }
+            }
+        </script>
+	</head>
+
+	<body onload="add()">
+		
+	</body>
+
+</html>

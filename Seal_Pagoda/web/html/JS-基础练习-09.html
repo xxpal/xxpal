@@ -1,0 +1,31 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/02/2019
+		Updated:
+		Description: 九九乘法表：尝试使用for循环输出一个九九乘法表。
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>九九乘法表</title>
+        <script type="text/javascript">
+            var result = 0;
+            for (var x = 1; x <= 9; x++) {
+                for (var y = 1; y <= x; y++) {
+                    result = y * x;
+                    if (y == x) {
+                        document.write(x + " × " + y + " = " + result + "<br />" + " ");
+                    } else {
+                        document.write(x + " × " + y + " = " + result + "&nbsp;&nbsp;&nbsp;&nbsp;");
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

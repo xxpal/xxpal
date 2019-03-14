@@ -1,0 +1,32 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/02/2019
+		Updated:
+		Description: 数字处理：用户输入一个正整数，将该正整数倒序输出，并求各个位数上的数字之和。
+        基本要求：不允许把用户输入的正整数处理为字符串，只能按照数值运算的规律完成本题；
+        扩展要求：求任意数字的各个位数上的数字之和，包括小数和负数
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>数字处理</title>
+        <script type="text/javascript">
+            var num = prompt("请输入一个正整数");
+            num = parseInt(num);
+            var reverse = ""; //倒序输出
+            var total = 0; //位数相加之和
+            while (num / 10 != 0) {
+                reverse += num % 10; //把获取到当前部分的个位数追加到变量里，而不是重新赋值
+                total += num % 10; //目前获取的个位数相加之和
+                num = parseInt(num / 10);
+            }
+            document.write("倒序输出 :" + reverse + " ，各位数相加之和 " + total);
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

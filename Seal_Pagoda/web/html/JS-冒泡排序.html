@@ -1,0 +1,38 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: 01/03/2019
+		Updated: 02/23/2019
+		Description: 冒泡排序
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>冒泡排序</title>
+        <script>
+            // 冒泡排序实现数组内的元素由小到大排列
+            // var nums = [12, 34, 23, 56, 69, 38, 47];
+            var nums = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+            document.write("排序前：" + nums + "<br />");
+            // 外循环，定义比较的轮数（n-1轮，n是数组的长度）
+            for (i = 0; i < (nums.length - 1); i++) {
+                // 内循环，从将数组内的第一个元素开始，对相邻两个元素进行比较
+                for (j = 0; j < (nums.length - i - 1); j++) {
+                    // 将相邻两个元素中较大的一个放在右边
+                    if (nums[j] > nums[j+1]) {
+                        temp = nums[j];
+                        nums[j] = nums[j+1];
+                        nums[j+1] = temp;
+                    }
+                }
+                document.write("第" + (i+1) + "轮排序后：" + nums + "<br />");
+            }
+            document.write("排序后：" + nums + "<br />");
+        </script>
+	</head>
+
+	<body>
+		
+	</body>
+
+</html>

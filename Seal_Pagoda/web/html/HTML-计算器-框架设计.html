@@ -1,0 +1,224 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: 12/25/2018
+		Updated:
+		Description: 计算器的框架设计实现
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>计算器框架设计</title>
+	</head>
+
+	<body>
+		<h1>计算器框架设计一</h1>
+		<hr />
+		<!-- 用一张表实现
+			按钮栏：第一行：合并单元格
+			显示栏：第二行：合并单元格
+			按键栏：5行4列
+		-->
+		<table align="center" border="1" width="300" height="400">
+			<tr>
+				<td colspan="4">按键栏</td>
+			</tr>
+			<tr>
+				<td colspan="4">显示栏</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+		</table>
+		
+		<h1>计算器框架设计二</h1>
+		<hr />
+		<!-- 用两张表实现：
+		方法一：
+			表一：
+				按钮栏：第一行：宽度一致
+				显示栏：第二行：宽度一致
+			表二：
+				按键栏：5行4列
+		-->
+		<table align="center" border="1" width="300" height="80" bordercolor="blue">
+			<caption>方法一</caption>
+			<tr>
+				<td>按键栏</td>
+			</tr>
+			<tr>
+				<td>显示栏</td>
+			</tr>
+		</table>
+		<table align="center" border="1" width="300" height="320" bordercolor="red">
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+		</table>
+		<!-- 用两张表实现：
+		方法二：
+			表一：
+				按钮栏：第一行：宽度一致
+				显示栏：第二行：宽度一致
+				表二： 第三行：
+					按键栏：5行4列
+		-->
+		<table align="center" border="1" width="300" bordercolor="blue">
+			<caption>方法二</caption>
+			<tr>
+				<td height="40">按键栏</td>
+			</tr>
+			<tr>
+				<td height="40">显示栏</td>
+			</tr>
+			<tr>
+				<table align="center" border="1" width="300" height="320" bordercolor="red">
+					<tr>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+					</tr>
+				</table>
+			</tr>
+		</table>
+
+		<h1>计算器框架设计三</h1>
+		<hr />
+		<!-- 用三张表实现：
+		表一：
+			按钮栏：第一行：宽度一致
+                表二：显示栏：第二行：宽度一致
+		表三：
+			按键栏：5行4列
+		-->
+		<table align="center" border="1" width="300" height="40" bordercolor="blue" cellspacing="0">
+			<tr>
+				<td>按键栏</td>
+			</tr>
+            <tr>
+            	<td>
+                    <table align="center" border="1" width="290" height="40" bordercolor="red" cellspacing="0">
+                    	<tr>
+                    		<td>显示栏</td>
+                    	</tr>
+                    </table>
+                </td>
+            </tr>
+		</table>
+		
+		<table align="center" border="1" width="300" height="320" bordercolor="green">
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+		</table>
+		
+		
+	</body>
+
+</html>

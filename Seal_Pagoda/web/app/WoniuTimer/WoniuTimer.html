@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WoniuTimer</title>
+		<style>
+			body {
+            background-image: url(img/background.jpg);
+            margin-top: 20px;
+            color: #f0f0f0;
+            font-family: 微软雅黑;
+        }
+        a:link,a:visited {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover,a:active {
+            color: red;
+            text-decoration: underline;
+        }
+        .top {
+            border: solid 1px #ff3300;
+            border-radius: 10px;
+            width: 900px;
+            height: 150px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .top .logo {
+            float: left;
+            width: 300px;
+            text-align: center;
+        }
+        .top .logo img {
+            width: 130px;
+        }
+        .top .text {
+            float: left;
+            width: 580px;
+            text-align: center;
+            font-size: 28px;
+        }
+        .main {
+            border: solid 1px #f0f0f0;
+            border-radius: 10px;
+            width: 900px;
+            height: 390px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        #total {
+            width: 150px;
+            height: 45px;
+            border: solid 1px #f0f0f0;
+            border-radius: 8px;
+            font-size: 32px;
+            text-align: center;
+        }
+        .timer-box {
+            border: solid 0px #f30;
+            width: 620px;
+            margin: 0 auto;
+            height: 170px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .main .count-box {
+            width: 550px;
+            margin: 0 auto;
+            height: 70px;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .main .count {
+            float: left;
+            width: 200px;
+            line-height: 60px;
+            padding-top: 10px;
+        }
+        .main .unit {
+            float: left;
+            width: 120px;
+            font-size: 30px;
+            line-height: 70px;
+        }
+        .timer-box .dash {
+            width: 80px;
+            font-size: 100px;
+            float: left;
+            text-align: center;
+            font-weight: bold;
+        }
+        .timer-box .timer {
+            width: 150px;
+            font-size: 120px;
+            float: left;
+            text-align: center;
+        }
+        .button-box {
+            border: solid 0px #f30;
+            width: 550px;
+            margin: 0 auto;
+            height: 150px;
+            text-align: center;
+        }
+        .icon {
+            float: left;
+            width: 100px;
+        }
+        .icon img:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        .bottom {
+            border: solid 1px #f0f0f0;
+            border-radius: 10px;
+            width: 900px;
+            height: 55px;
+            margin: 0 auto;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+
+		<script>
+			/*
+
+        // 定义一批全局变量
+        var interval = null;    //计时器对象，用于暂停
+        var totalSecond = 0;    //总的倒计时秒数
+        var isPaused = false;   //是否点击了暂停
+        var isStarted = false;  //是否已经开始倒计时
+
+        // 增加1分钟，到最大值5999
+        function plus() {
+            var total = parseInt(document.getElementById("total").value);
+            if (total > 5998)
+                document.getElementById("total").value = 5999;
+            else
+                document.getElementById("total").value = total + 1;
+        }
+
+        // 减少1分钟，到最小值1
+        function minus() {
+            var total = parseInt(document.getElementById("total").value);
+            if (total < 2)
+                document.getElementById("total").value = 1;
+            else
+                document.getElementById("total").value = total - 1;
+        }
+
+        // 检查用户的输入类型，只允许输入1~4位数字
+        function check() {
+            var total = document.getElementById("total");
+            var input = total.value;
+            var pattern = new RegExp("^\\d{1,4}$");
+            if (!pattern.test(input)) {
+                // 如果最后一次的输入不是有效的数字，则直接将其删除掉
+                total.value = input.substring(0, input.length-1);
+            }
+        }
+
+        function start() {
+            isStarted = true;   //指示已经开始
+            var totalMinute = parseInt(document.getElementById("total").value);
+            // 如果isPaused的值false，说明没有暂停过，则是全新的倒计时开始
+            if (isPaused == false)
+                totalSecond = totalMinute * 60;
+            // 开始调用定时器对象完成倒计时（按秒为单位）
+            interval = setInterval("timerDown()", 1000);
+        }
+
+        // 暂停计时
+        function pause() {
+            if (isStarted)
+                isPaused = true;
+            clearInterval(interval);
+        }
+
+        // 刷新页面，重新载入
+        function refresh() {
+            window.location.reload();
+        }
+
+        function timerDown() {
+            // 如果倒计时已经完成，则暂停且播放音乐
+            if (totalSecond <= 0) {
+                clearInterval(interval);
+                document.getElementById('done').play();
+            }
+
+            // 如果时分秒等数字只有一位时，前面补0
+            var hour = Math.floor(totalSecond/3600);
+            if (hour < 10)
+                hour = "0" + hour;
+
+            var minute = Math.floor((totalSecond-hour*3600)/60);
+            if (minute < 10)
+                minute = "0" + minute;
+
+            var second = totalSecond % 60;
+            if (second < 10)
+                second = "0" + second;
+
+            document.getElementById("hour").innerHTML = hour.toString();
+            document.getElementById("minute").innerHTML = minute.toString();
+            document.getElementById("second").innerHTML = second.toString();
+            totalSecond--;  // 让总秒数减1
+        }
+*/
+
+    </script>
+	</head>
+	<body>
+
+		<div class="top">
+			<div class="logo">
+				<img src="img/logo.jpg" style="width: 130px;">
+			</div>
+			<div class="text">
+				<a href="http://www.woniuxy.com">蜗牛学院</a>-学员活动专用倒计时工具
+				<p />
+				<p />祝各位参赛选手取得优秀成绩！
+			</div>
+		</div>
+
+		<p />
+
+		<div class="main">
+			<div class="count-box">
+				<div class="icon">
+					<img src="img/minus.png" width="70" onclick="minus();" />
+				</div>
+				<div class="count">
+					<input type="text" id="total" value="10" /><!-- onkeyup="testNumber(event)"-->
+				</div>
+				<div class="unit">
+					分钟
+				</div>
+				<div class="icon" style="float: left; width: 100px;">
+					<img src="img/plus.png" width="70" onclick="plus();" />
+				</div>
+			</div>
+
+			<div class="timer-box">
+				<div class="timer" id="hour">00</div>
+				<div class="dash">-</div>
+				<div class="timer" id="minute">00</div>
+				<div class="dash">-</div>
+				<div class="timer" id="second">00</div>
+			</div>
+
+			<div class="button-box">
+				<div class="icon" style="float: left; width: 200px; padding-top: 20px;">
+					<img src="img/pause.png" width="60" onclick="pause();" />
+				</div>
+				<div class="icon" style="float: left; width: 100px;">
+					<img src="img/start.png" width="90" onclick="start();" />
+				</div>
+				<div class="icon" style="float: left; width: 200px; padding-top: 20px;">
+					<img src="img/refresh.png" width="60" onclick="refresh();" />
+				</div>
+			</div>
+		</div>
+
+		<p />
+
+		<div class="bottom">
+			技术支持：<a href="http://www.woniucx.com">成都蜗牛创想科技有限公司</a>（蜗牛学院），
+			<span style="font-size: 28px;">http://www.woniuxy.com</span>
+		</div>
+
+		<audio id="done" preload="auto">
+			<source src="res/done.mp3" type="audio/mp3" />
+		</audio>
+
+		<!--
+实现加减功能
+
+1.加
+    1. 获取input元素
+    2.获取元素的值
+    3.进行加法运算
+    4.重新赋值
+-->
+		<script>
+			var timer = null; //定义全局变量
+			var ispause = false; //默认状态是重新开始
+			/*
+			 * 1.加减功能
+			 * 思路
+			 * 1.图片点击-->执行函数
+			 * 2.获取input元素的值
+			 * 3.进行加法减法运算
+			 * 4.讲结果重新赋值给input
+			 *
+			 *
+			 *
+			 *
+			 * */
+
+			function plus() {
+				var input = document.getElementById("total"); //id要加引号
+				//获取input的值
+				var value = parseInt(input.value); //只是保存的一个值，
+				value = value + 1;
+				//重新赋值i 必须是  元素.属性 = 值
+				input.value = value;
+				//    input.value //获取的是一个字符串，需要parseInt转化为真正的数字
+			}
+
+			function minus() {
+				var input = document.getElementById("total"); //id要加引号
+				//获取input的值
+				var value = parseInt(input.value); //只是保存的一个值，
+				value = value - 1;
+				//重新赋值i 必须是  元素.属性 = 值
+				input.value = value;
+				//    input.value //获取的是一个字符串，需要parseInt转化为真正的数字
+			}
+
+
+
+
+
+
+			/*
+			 * 2.
+			 * 实现点击开始 进行倒计时
+			 *
+			 * 思路
+			 * 1.利用总秒数来模拟倒计时功能
+			 *       a。 点击开始按钮，执行一个函数start）
+			 *       b . 函数里 获取input的值并转化为总秒数
+			 *       c. 设置定时器，定时器函数完成以下操作
+			 *           1. 总秒数减1
+			 *           2. 将总秒数用时分秒的形式展示出来并分别赋值给对应显示的html元素
+			 * */
+			/*
+			 * BUG:!在定时器执行时，如果点击开始，那么会重新计时
+			 *  解决思路：应该是定时器执行时点击开始按钮，没反映
+			 * */
+
+
+
+			/*\
+			 *
+			 * */
+			function start() {
+				//如果定时器没有被执行，那么timer的值还是null
+				if (timer == null) {
+					checkRange();
+					if (ispause == false) {
+						//重新开始
+						var input = document.getElementById("total");
+						var time = parseInt(input.value);
+						totalSeconds = time * 60;
+						/*
+						 * 设置定时器
+						 * */
+						//        timer = setInterval("time()",100);
+					} else {
+						//继续
+						//        timer = setInterval("time()",100);
+					}
+					timer = setInterval("time()", 100); //因为if else都有这句代码，所以拿出来，以节约代码量
+				}
+
+
+			}
+
+			function time() {
+				var hour = parseInt(totalSeconds / 3600);
+				var minute = parseInt(totalSeconds / 60) % 60;
+				var secends = totalSeconds % 60;
+				document.getElementById("hour").innerHTML = hour;
+				document.getElementById("minute").innerHTML = minute;
+				document.getElementById("second").innerHTML = secends;
+				if (totalSeconds > 0) {
+					totalSeconds--; //总秒数自减一
+				}
+			}
+
+			/*
+			 * 暂停：
+			 * 点击暂停，定时器停止
+			 * 
+			 * */
+
+			/*
+			 * 在开发中遇到类似点击没效果，确保 ，onclick里面的函数被执行
+			 * */
+			function pause() {
+				//    alert(0);//确保函数被执行
+				ispause = true; //切换为暂停状态
+				clearInterval(timer); //需要一个定时器的返回值（也就是定时器id）
+				timer = null;
+			}
+
+			/*
+			 * 继续功能
+			 * 思路：
+			 * 1.点击开始，会有个判断，判断是否重新开始还是继续执行
+			 *  设置状态变量 ispause
+			 *  需要对倒计时的状态进行判断，所以需要一个状态变量来进行判断，比如说，ispause =false，假设为重新开始
+			 * ，如果点击了暂停按钮，就把该状态变量设置为true，然后再点击开始按钮时，可以对该变量进行判断。
+			 * */
+
+			/*
+			 * 重置
+			 * 效果 显示清零，并且停止定时器
+			 * 1.clearInterval 停止定时器
+			 * 2.ba 时分秒显示清零，也就是吧显示的值变为00
+			 * */
+
+			function refresh() {
+				clearInterval(timer); //停止定时器
+				timer = null;
+				document.getElementById("hour").innerHTML = "00";
+				document.getElementById("minute").innerHTML = "00";
+				document.getElementById("second").innerHTML = "00";
+			}
+
+
+			/*
+			 *
+			 * 修复bug
+			 * 1.针对输入框
+			 *    a.可以输入任何字符
+			 *    b.当输入太多数字时，显示乱成一团
+			 *
+			 *    解决：1.限制用户只能输入数字     2.限制用户输入范围 0-5999
+			 *    1-1 给input设置type为number
+			 *    1-2  利用js来实现限制(扩展)
+			 *          思路，在用户输入的时候就进行判断，如果输入的不是数字就撤回
+			 *          事件：1.onkeydown 按下键盘时执行
+			 *          2.onkeyup 松开键盘时执行  使用该事件
+			 *          3.onkeypress 释放键盘时执行
+			 *
+			 *
+			 *2.限制用户输入的长度，只能输入0-5999
+			 * 在点击开始按钮时进行判断度不能大于4 ，范围是0-5999
+			 * */
+
+			function testNumber(event) {
+				//event 是一个信息集合，每个事件都有，里面包含一些关于事件相关信息
+				// 比如说是那个html元素执行了该事件，按下了哪个键盘按钮==keycode
+				if (event.keyCode >= 48 && event.keyCode <= 57) {
+					//输入的是数字
+
+				} else {
+					//不是数字就撤回
+					var input = document.getElementById("total");
+					input.value = input.value.substr(0, input.value.length - 1);
+				}
+			}
+			/*
+			 * 0-5999 和用户不输入
+			 * */
+			function checkRange() {
+				var input = document.getElementById("total");
+				if (input.value > 5999) {
+					input.value = 5999;
+				} else {
+					if (input.value < 0) {
+						input.value = 0;
+					}
+					/*
+					 * 如果说什么都没有，设置为 0
+					 * */
+					if (input.value.length == 0) {
+						input.value = 0;
+					}
+				}
+
+			}
+
+			/*
+			 *
+			 * 加速问题
+			 * 如果说定时器已启动，肯定  timer会保存定时器的id，肯定是大于0 。根据timer的值是否为null来进行判断
+			 *
+			 * */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			/*   var input = document.getElementById("total");
+       var total;//局部变量
+
+    function add() {
+        var input  = document.getElementById("total");//注意id被引号包围
+//    alert(parseInt(input.value));
+        input.value = parseInt(input.value)+1;
+    }
+    function minus() {
+        var input  = document.getElementById("total");//注意id被引号包围
+//    alert(parseInt(input.value));
+        input.value = parseInt(input.value)-1;
+    }*/
+
+			//获取的value 是一个字符串并不是一个纯数字  "10"+1 ="101"
+			//使用parseInt 将字符串转换为真正的数字
+			//parseInt（）将一个数字或者字符串尝试转为一个正整数
+
+			/*
+			 * 效果
+			 * 点击开始按钮
+			 * 1.使用定时器
+			 * 2.时分秒会一直在变化，并且每秒执行一次
+			 * 思路
+			 * 1.点击开始  会执行函数
+			 * 2.获取input的值，并乘以60转化为总秒数
+			 * 3.将总秒数转为时分秒的表现形式，并把时、分、秒分别赋值给显示的html元素
+			 * 4.总秒数自减一
+			 * 5.设置定时器 ，重复执行 3   4 x
+			 * */
+			/*
+			 * 全局变量和局部变量
+			 * */
+			//全局变量 ：定义在script标签下的变量，特点是任何位置都可以访问
+			//    局部变量  ： 只针对函数体里有效
+
+			/*function start() {
+			//    alert(total);
+			    total = parseInt(input. value) *60;
+			    setInterval("timer()",1000);
+			}
+
+			function timer() {
+
+			    var hour = document.getElementById("hour");
+			    var minute = document.getElementById("minute");
+			    var second = document.getElementById("second");
+			    total --;
+			//    alert(total);
+			    var h = parseInt(total/3600);
+			    var m = parseInt(total/60)%60; //分
+			    var s = total%60;
+			    hour.innerHTML = h;
+			    minute.innerHTML = m;
+			    second.innerHTML = s;
+
+
+			}*/
+		</script>
+	</body>
+</html>

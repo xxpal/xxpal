@@ -1,0 +1,26 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: MM/DD/YYYY
+		Updated:
+		Description: 
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>查找DOM元素</title>
+        <script>
+            function fillContent() {
+                var div = document.getElementById("mydiv");
+                div.innerHTML = "您好，欢迎来到蜗牛学院！";
+                document.getElementById("mytext").value = "123456";
+            }
+        </script>
+	</head>
+
+	<body onload="fillContent()">   <!--当页面加载时调用fillContent()函数-->
+		<div id="mydiv"></div>
+        <input type="text" value="" id="mytext" />
+	</body>
+
+</html>

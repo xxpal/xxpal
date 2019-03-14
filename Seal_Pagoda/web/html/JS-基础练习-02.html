@@ -1,0 +1,32 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/02/2019
+		Updated:
+		Description: 字符判断：从键盘输入一个字符，
+        判断该字符是数字、大写字母、小写字母还是符号。
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>字符判断</title>
+        <script type="text/javascript">
+            var content = prompt("请输入一个字符：");
+            var code = content.charCodeAt(0);
+            if (code >= 48 && code <= 57) {
+                document.write(content + "是一个数字。");
+            } else if (code >= 65 && code <= 90) {
+                document.write(content + "是一个大写字母。");
+            } else if (code >= 97 && code <= 122) {
+                document.write(content + "是一个小写字母。");
+            } else {
+                document.write(content + "是一个符号。");
+            }
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

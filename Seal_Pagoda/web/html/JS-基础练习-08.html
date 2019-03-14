@@ -1,0 +1,34 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/02/2019
+		Updated:
+		Description: 组合问题：用1元纸币兑换1分、2分和5分的硬币，要求兑换总数为50枚，
+        请问可能的组合有多少种？每种组合中1分、2分和5分的硬币数量分别是多少？
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>组合问题</title>
+        <script>
+            var total = 0;
+            for (var five = 0; five <= 50; five++) {
+                for (var two = 0; two <= 50; two++) {
+                    for (var one = 0; one <= 50; one++) {
+                        if (five + two + one == 50 && five * 5 + two * 2 + one * 1 == 100) {
+                            document.write("5 分 ：" + five + " 2 分 ：" + two + " 1 分 ：" + one + "<br />");
+                            total++;
+                        }
+
+                    }
+                }
+            }
+            document.write("一共有 " + total + "个组合");
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

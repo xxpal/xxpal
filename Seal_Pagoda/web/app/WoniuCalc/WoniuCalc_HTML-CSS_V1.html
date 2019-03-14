@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WoniuCalc HTML+CSS实现_V1</title>
+    <style>
+        td {
+            border-radius: 5px;
+        }
+        #top {
+            width: 450px;
+            background-color: #696969;
+            border-spacing: 0px;
+            margin: auto;
+            border: solid 0px red;
+            /* 设置圆角 */
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+        }
+        /*#top:first-child td {*/
+        /**/
+        /*}*/
+        /*#top:nth-child(2) td {*/
+            /**/
+        /*}*/
+        #top #top-one {
+            height: 35px;
+            font-size: 30px;
+        }
+        #top #top-two {
+            height: 60px;
+        }
+
+        #button {
+            width: 450px;
+            background-color: #696969;
+            border-spacing: 3px;
+            margin: auto;
+            border: solid 0px #2f2eff;
+        }
+        #button td {
+            background-color: aquamarine;
+            height: 80px;
+            width: 25%;
+            text-align: center;
+            font-family: 微软雅黑;
+            font-size: 30px;
+        }
+        /* 伪类选择器: hover表示鼠标悬停时的效果 */
+        #button td:hover {
+            background-color: coral;
+            font-size: 40px;
+            /*width: 30%;*/
+            /*height: 100px;*/
+        }
+        .font-red {
+            color: orangered;
+        }
+        .font-blue {
+           color: #2f2eff;
+        }
+        .font-green {
+            color: green;
+        }
+
+        #top #top-two table {
+            border: solid 2px red;
+            height: 60px;
+            width: 99%;
+            margin: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table id="top">
+        <tr></tr>
+        <tr>
+            <td id="top-one">
+                <span class="font-red">●</span>
+                <span class="font-blue">●</span>
+                <span class="font-green">●</span>
+            </td>
+        </tr>
+        <tr>
+            <td id="top-two">
+                <table>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+    </table>
+
+    <table id="button">
+        <tr>
+            <td>AC</td>
+            <td>+/-</td>
+            <td>%</td>
+            <td>÷</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>×</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>+</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>删除</td>
+            <td>.</td>
+            <td>=</td>
+        </tr>
+
+    </table>
+</body>
+</html>

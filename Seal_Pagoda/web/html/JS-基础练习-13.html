@@ -1,0 +1,36 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/02/2019
+		Updated:
+		Description: 请找出1~100以内的所有质数。（扩展要求：找出任意范围内的质数）
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>寻找质数</title>
+        <script>
+            // 求1到100的质数
+            document.write("1-100以内的质数如下：" + "<br />");
+            for (var i = 3; i <= 100; i++) {
+                var isPrimeNum = true; // 默认是质数
+
+                for (var j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        isPrimeNum = false; // 不是质数
+                        break;
+                    }
+                }
+
+                if (isPrimeNum) {
+                    document.write(i + "&nbsp;");
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

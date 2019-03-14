@@ -1,0 +1,73 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/02/2019
+		Updated:
+		Description: JS分支结构演示
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>JS分支结构</title>
+        <script>
+            var hour = new Date().getHours();
+            document.write(hour)
+            document.write("</br>");
+            if (hour > 18) {
+                document.write("天黑了！");
+            } else if (hour == 14) {
+                document.write("正在上课");
+            } else { //hour<=18 并且 hour不等于14
+                document.write("干活吧！")
+            }
+            document.write("</br>");
+
+            var current_hour = (hour > 18) ? "下班了" : "工作中";
+            if (hour > 18) {
+                current_hour = "下班了";
+            } else {
+                current_hour = "工作中";
+            }
+            document.write(current_hour);
+            document.write("<br />");
+
+            var num = prompt("Please input a number between 1 - 7:");
+            document.write(typeof num)
+            document.write("</br>");
+            var int_num = parseInt(num)
+            document.write(typeof int_num)
+            document.write("</br>");
+            switch (int_num) {
+                case 1:
+                    x = "Monday";
+                    break;
+                case 2:
+                    x = "Tuesday";
+                    break;
+                case 3:
+                    x = "Wednesday";
+                    break;
+                case 4:
+                    x = "Thursday";
+                    break;
+                case 5:
+                    x = "Friday";
+                    break;
+                case 6:
+                    x = "Saturday";
+                    break;
+                case 7:
+                    x = "Sunday";
+                    break;
+                default:
+                    x = "input mistake."
+            }
+            document.write(x);
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

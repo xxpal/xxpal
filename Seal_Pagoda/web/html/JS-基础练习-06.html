@@ -1,0 +1,47 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/02/2018
+		Updated:
+		Description: 统计字符：从键盘输入一个字符串，统计该字符串
+        当中包含了几个大写字母、几个小写字母、几个数字、几个特殊符号。
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>统计字符</title>
+        <script type="text/javascript">
+            var str = prompt("请输入一个任意字符串：");
+            // 如：Woniuxy666Hello!@#$： 大写2，小写10，数字3，符号4
+            var number = 0; // 统计数字的个数
+            var upper = 0; // 统计大写的个数
+            var lower = 0; // 统计小写的个数
+            var other = 0; // 统计符号的个数
+
+            // 在循环体内部，进行分支判断（循环和分支的嵌套）
+            for (var i = 0; i < str.length; i++) {
+                var code = str.charCodeAt(i);
+
+                if (code >= 48 && code <= 57) {
+                    number++;
+                } else if (code >= 65 && code <= 90) {
+                    upper++;
+                } else if (code >= 97 && code <= 122) {
+                    lower++;
+                } else {
+                    other++;
+                }
+            }
+
+            document.write("数字：" + number + " 个<br>");
+            document.write("大写：" + upper + " 个<br>");
+            document.write("小写：" + lower + " 个<br>");
+            document.write("其它：" + other + " 个<br>");
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

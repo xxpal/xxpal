@@ -1,0 +1,33 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/02/2019
+		Updated:
+		Description: 抓球问题：有红球5个、黑球7个、白球9个、随机取出12个，
+        计算可能的颜色组合有多少种？
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>抓球问题</title>
+        <script type="text/javascript">
+            var i = 0;
+            for (var red = 0; red <= 5; red++) {
+                for (var black = 0; black <= 7; black++) {
+                    for (var white = 0; white <= 9; white++) {
+                        if (red + black + white === 12) {
+                            i++;
+                            document.write("red：" + red + "；black：" + black + "；white：" + white + "<br />");
+                        }
+                    }
+                }
+            }
+            document.write("可能的颜色组合有" + i + "种。");
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

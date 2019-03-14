@@ -1,0 +1,43 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: 01/04/2019
+		Updated:
+		Description: 
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>DOM-删除元素</title>
+        <script>
+            function add() {
+                for (var i=1; i<=20; i++) {
+                    var myDiv = document.createElement("div");
+                    myDiv.style.width = "100px";
+                    myDiv.style.height = "50px";
+                    myDiv.style.backgroundColor = "orangered";
+                    myDiv.style.position = "fixed";
+                    myDiv.style.left = Math.random() * 1200 + "px";
+                    myDiv.style.top = Math.random() * 800 + "px";
+                    document.body.appendChild(myDiv);
+                }
+            }
+            
+            function del() {
+                var allDiv = document.getElementsByTagName("div");
+                var length = allDiv.length;
+                for (var i=0; i<length; i++) {
+                    allDiv[0].remove(); //请思考：为什么一直要用下标0？
+                }
+            }
+        </script>
+	</head>
+
+	<body onload="add()">
+        <button onclick="add()">一键生成</button>
+        <br />
+        <br />
+		<button onclick="del()">一键清空</button>
+	</body>
+
+</html>

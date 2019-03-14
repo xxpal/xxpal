@@ -1,0 +1,123 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: 12/27/2018
+		Updated:
+		Description: DIV计算器
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>DIV计算器</title>
+		<style type="text/css">
+			#outer {
+				width: 450px;
+				height: 540px;
+				background-color: grey;
+				margin: 0 auto;
+				border-radius: 20px;	/* 设置最外层窗口的圆角 */
+			}
+			
+			#top {
+				width: 200px;
+				height: 50px;
+				padding-left: 10px;		/* 设置小圆点距离左边20px */
+				display: table-cell;	/* 以单元格方式处理DIV，便于实现垂直居中 */
+				vertical-align: middle;	/* 让三个小圆点垂直居中 */
+			}
+			
+			.point {
+				width: 20px;
+				height: 20px;
+				float: left;
+				margin-left: 10px;
+				border-radius: 50%;
+			}
+			
+			#bp {
+				background-color: dodgerblue;
+			}
+			
+			#gp {
+				background-color: darkgreen;
+			}
+			
+			#rp {
+				background-color: orangered;
+			}
+			
+			#screen {
+				width: 97%;
+				height: 50px;
+				background: white;
+				margin: 0 auto;
+				border: solid 2px orangered;
+			}
+			
+			#button {
+				width: 99%;
+				height: 420px;
+				margin: 10px auto;
+			}
+			
+			#button div {
+				width: 24%;
+				height: 80px;
+				margin: 2px;
+				background-color: #7FFFD4;
+				float: left;
+				font-size: 30px;
+				text-align: center;
+				line-height: 80px;
+				font-family: 微软雅黑;
+				border-radius: 5%;
+			}
+			
+			#button div:hover {
+				background-color: orangered;
+				font-size: 36px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="outer">
+			<div id="top">
+				<div class="point" id="bp"></div>
+				<div class="point" id="gp"></div>
+				<div class="point" id="rp"></div>
+			</div>
+			
+			<div id="screen"></div>
+			
+			<div id="button">
+				<div>AC</div>
+				<div>+/-</div>
+				<div>%</div>
+				<div>÷</div>
+				
+				<div>7</div>
+				<div>8</div>
+				<div>9</div>
+				<div>×</div>
+				
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+				<div>-</div>
+				
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>+</div>
+				
+				<div>0</div>
+				<div>删除</div>
+				<div>.</div>
+				<div>=</div>
+			</div>
+		</div>
+	</body>
+
+</html>

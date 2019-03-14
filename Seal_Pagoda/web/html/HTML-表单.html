@@ -1,0 +1,93 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: 12/25/2018
+		Updated:
+		Description: HTML表单演示
+	-->
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" href="../img/logo.jpg">
+		<title>HTML表单演示</title>
+	</head>
+
+	<body>
+		<h1>表单</h1>
+		<hr />
+		<!--
+			<input type=button 
+						checkbox 
+						color 
+						date 
+						datetime 
+						datetime-local 
+						email 
+						file 
+						hidden 
+						image 
+						month 
+						number 
+						password 
+						radio 
+						range 
+						reset 
+						search 
+						submit 
+						tel 
+						text 
+						time 
+						url 
+						week
+		-->
+		<h2>文本框</h2>
+		用户名：<input type="text" value="input here" id="username" maxlength="10"/>
+		<br />
+		密码：<input type="password" value="123456" id="password" name="password"/>
+		
+		<h2>按钮</h2>
+		<input type="button" value="用力戳我!" onclick="alert('Hello World!')" />
+		<button onclick="alert('Hello World!')">Click me!</button>
+		
+		<h2>单选框</h2>
+		<input type="radio" name="gender" />男
+		<input type="radio" name="gender" />女
+		<input type="radio" name="sex" />看领导需要
+		
+		<h2>复选框</h2>
+		<input type="checkbox" value="car" />汽车
+		<input type="checkbox" value="game" />游戏
+		<input type="checkbox" value="music" />音乐
+		<input type="checkbox" value="travel" />旅行
+		
+		<h2>下拉框</h2>
+		<select id="city">
+			<option value="sh">上海</option>
+			<option value="bj">北京</option>
+			<option value="sz">深圳</option>
+			<option value="gz">广州</option>
+			<option value="cd">成都</option>
+		</select>
+		
+		<h2>文本域</h2>
+		<textarea cols="60" rows="10">我们期待您的建议……</textarea>
+		
+		<h2>表单</h2>
+		<form id="cancel" action="http://www.woniuxy.com" method="post">
+			姓：<input type="text" value="Xie" /><br />
+			名：<input type="text" value="Xing" /><br />
+			<input type="reset" value="重置" />
+			<input type="submit" value="提交" /><br />
+		</form>
+		<h2>其它</h2>
+		<input type="color" /><br />
+		<input type="date" /><br />
+		<input type="datetime" /><br />
+		<input type="datetime-local" /><br />
+		<input type="email" /><br />
+		<input type="file" /><br />
+		<input type="image" src="../img/communicate.png"/><br />
+		<input type="range" name="scores" min="1" max="10"/><br />
+	</body>
+
+</html>

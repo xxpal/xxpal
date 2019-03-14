@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/04/2019
+		Updated:
+		Description: 
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>切换图片</title>
+        <script>
+            var num = 0;
+			function swtichImage() {
+				if (num == 0){
+                    document.getElementById("ImgDiv").innerHTML = "<img src='../img/butterfly/butterfly2-frame0.png' />";
+                    num = 1;
+				} else{
+					document.getElementById("ImgDiv").innerHTML = "<img src='../img/butterfly/butterfly2-frame1.png' />";
+                    num = 0;
+				}
+			}
+		</script>
+    </head>
+    <body>
+        <input type="button" value="点击切换" onclick="swtichImage()" />
+        <div id="ImgDiv">
+            <img src="../img/butterfly/butterfly2-frame0.png" />
+        </div>
+    </body>
+</html>

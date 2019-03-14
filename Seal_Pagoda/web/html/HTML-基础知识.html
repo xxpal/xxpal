@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+	<!--
+		author: Leo
+		created: 12/24/2018
+		updated: 12/24/2018
+		version: 1.0
+		description: HTML基础知识
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>HTML-基础知识</title>
+	</head>
+
+	<body>
+		<!-- ========== ========== 1. 基础知识 ========== ========== -->
+		<h1>1. 基础知识</h1>
+		<hr>
+		
+		<!-- ========== ========== 2. 常用标签 ========== ========== -->
+		<h1>2. 常用标签</h1>
+		<hr>
+		<!-- ********** ********** 2.1 文本 ********** ********** -->
+		<h2>2.1 文本</h2>
+		<h3>2.1.1 &lt;font&gt;标签</h3>
+		<!--
+			<font>标签：规定文本的字体、字体尺寸、字体颜色。
+			标准属性：
+				- class=classname：规定元素的类名
+				- dir=rtl或ltr：规定元素中内容的文本方向
+				- id=id，规定元素的唯一id
+				- lang=language_code：规定元素中内容的语言代码
+				- style=style_definition：规定元素的行内样式
+				- title=text：规定元素的额外信息
+			可选属性（HTML5中不支持，HTML4.01中已废弃，请改用CSS）：
+				- size=number（1~7，默认为3）：规定文本的尺寸大小
+				- face=family-font：规定文本的字体样式
+				- color=color_name或hex_number或rgb_number：规定文本颜色
+					- color_name：颜色名称（如 "red"）。
+					- hex_number：十六进制值表示的颜色（如 "#ff0000"）。
+					- rgb_number：RGB代码表示的颜色（如 "rgb(255,0,0)"）。
+		-->
+		<font size="7" color="red" face="微软雅黑">你好！欢迎来到蜗牛学院！</font>
+		<br/>
+		<font size="6" color="green" face="Arial">Hello！Welcome to Woniuxy!</font>
+		<br/>
+		<font size="5" color="blue" face="宋体">你好！欢迎来到蜗牛学院！</font>
+		<br/>
+		<font size="4" color="purple" face="Times New Roman">Hello! Welcome to Woniuxy!</font>
+		<br/>
+		<font size="3" color="orange" face="楷体">你好！欢迎来到蜗牛学院学习！</font>
+		<br/>
+		<font size="2" color="yellow" face="Courier New">Hello! Welcome to Woniuxy!</font>
+		<br/>
+		<font size="1" color="grey" face="新宋体">你好！欢迎来到蜗牛学院学习！</font>
+		<br/>
+		<h3> 2.1.2 &lt;h1&gt; - &lt;h6&gt;标签</h3>
+		<!--
+			<h1> - <h6>标签被用来定义HTML标题。1~6重要等级依次降低，字体也依次变小。
+			HTML4.01中，<h1> - <h6>的align属性已被废弃。
+			HTML5中，<h1> - <h6>元素的align属性不被支持。请使用CSS来排列元素。
+				align="left"：左对齐（默认值）
+				align="right"：右对齐
+				align="center"：居中对齐
+				align="justify"：两端对齐（有合理的边距）
+			
+		-->
+		<h1 align="center">这是1号标题（h1）</h1>
+		<h2 align="right">这是2号标题（h2）</h2>
+		<h3 align="justify">这是3号标题（h3）</h3>
+		<h4 align="justify">这是4号标题（h4）</h4>
+		<h5 align="left">这是5号标题（h5）</h5>
+		<h6>这是6号标题（h6）</h6>
+		
+		<h3> 2.1.3 &lt;i&gt;标签、&lt;b&gt;标签和&lt;strong&gt;标签</h3>
+		<!--
+			<i>标签定义斜体的文本。
+				1、<i>标签常常被用来表示科技术语、其他语种的成语、俗语、想法等等。
+				2、在没有其它适当的标签可以使用时，才考虑使用<i>标签。如下：
+					- <em>：（被强调的文本）
+					- <strong>：（重要的文本）
+					- <mark>：（被标记的/高亮显示的文本）
+					- <cite>：（作品的标题）
+					- <dfn>：（一个定义项目）
+
+			<b>标签定义粗体的文本；<strong>(强调)的效果也是加粗
+			根据HTML5的规范，<b>标签应该做为最后的选择，只有在无其它标签合适时才使用它。
+			HTML5规范声明：
+				- 标题应该用<h1> - <h6>标签表示，
+				- 被强调的文本应该用<em>标签表示
+				- 重要的文本应该用<strong>标签表示
+				- 被标记的或者高亮显示的文本应该用<mark>标签表示
+			扩展：
+			1、<b>的效果是加粗，<strong>(强调)的效果也是加粗，有什么区别吗？
+				strong是XHTML的标签，strong的意思是“强调”；
+				b是HTML的标签，b的意思是bold（粗体）。
+			2、为什么用strong代替b？其实这个问题不妨改问：
+				XHTML和HTML有什么不同，为什么要用XHTML代替HTML？
+				简单地说，web标准主张XHTML不涉及具体的表现形式，“强调”可以用加粗来强调，
+				也可以用其它方式来强调，比如：下划线、字体加大、红色等等，
+				可以通过CSS来改变strong的具体表现，而b只是加粗字体而已。
+		-->
+		<i>斜体文本 italic</i><br />
+		<b>粗体文本 bold</b><br />
+		<strong>强调文本 strong</strong><br />
+		
+		<h3> 2.1.4 &lt;p&gt;标签</h3>
+		<!--
+			<p>标签定义段落（paragraph）。
+			1、会自动在其前后创建一些空白。浏览器会自动添加，用户也可自行在样式表中定义。
+			2、规定了段落中文本的对齐方式。
+				align="left"：
+				align="right"
+				align="center"
+				align="justify"
+			注意：不赞成使用align属性，HTML5不支持，HTML4.01已废弃，请使用样式取代它。
+		-->
+		<p align="center">Paragraph-1（段落0）：枫桥夜泊</p>
+		<p align="right">Paragraph-1（段落1）：月落乌啼霜满天</p>
+		<p align="justify">Paragraph-2（段落2）：江枫渔火对愁眠</p>
+		<p align="left">Paragraph-3（段落3）：姑苏城外寒山寺</p>
+		<p>Paragraph-4（段落4）：夜半钟声到客船</p>
+		
+		<!-- ********** ********** 2.2 图片 ********** ********** -->
+		<h2>2.2 图片</h2>
+		<a href="http://www.woniuxy.com" target="_blank" name="logo">
+			<img src="../img/logo.jpg" alt="Woniuxy Logo" width="96" height="64"/>
+		</a>
+		<br />
+		<img src="../img/java-icon.png" align="middle"/>Java开发
+		<img src="../img/test-icon.png" align="top"/>软件测试
+		<img src="../img/android-icon.png" align="bottom"/>安卓开发
+		
+		
+		<!-- ********** ********** 2.3 超链接 ********** ********** -->
+		<h2>2.3 超链接</h2>
+		<p>
+			<a href="http://www.woniuxy.com" name="home">绝对路径 ==> 蜗牛学院</a>
+			<br />
+			<a href="../img/logo_meitu_1.png" >相对路径 ==> 蜗牛学院logo图片</a>
+			<br />
+			<a href="#top" name="jump">锚（Anchor） ==> 回到页面顶端</a>
+			<br />
+			<a href="mailto:xx@woniuxy.com">给我发个伊妹儿吧~</a>
+			<br />
+			<a href="tel:18688886666">为我打call吧~</a>
+			<a href="sms:18688886666?body=你好啊">短信联系我吧~</a>
+		</p>
+		
+		<!-- ********** ********** 2.4 表格 ********** ********** -->
+		<h2>2.4 表格</h2>
+		<table border="1">
+			<caption align="left">Monthly savings</caption>
+			<tr>
+				<th colspan="3">Name</th>
+				<td>Aaaaaa</td>
+				<td>Bbbbbb</td>
+				<td>Cccccc</td>
+			</tr>
+			<tr>
+				<th colspan="3">Tel</th>
+				<td>2222</td>
+				<td>2333</td>
+				<td>2444</td>
+			</tr>
+		</table>
+		<br />
+		
+		<table>
+			<!-- 第一个表格用于显示3个圆点按钮 -->
+			<table border="1" width="300" height="10">
+				<tr>
+					<td align="right">
+						<font size="6">···</font>
+					</td>
+				</tr>
+			</table>
+			<!-- 第二个表格用于显示输入的信息 -->
+			<table border=1 width="300" height="60">
+				<tr>
+					<td align="right">
+						Screen
+					</td>
+				</tr>
+			</table>
+			<!-- 第三个表格用于布局计算器的按键 -->
+			<table border=1 width="300" height="300">
+				<tr>
+					<th width="40">
+						AC
+					</th>
+					<th width="40">
+						C
+					</th>
+					<th width="40">
+						+
+					</th>
+				</tr>
+				<tr>
+					<td width="40" align="center" valign="center">
+						9
+					</td>
+					<td width="40" align="center" valign="center">
+						8
+					</td>
+					<td width="40" align="center" valign="center">
+						7
+					</td>
+				</tr>
+				<tr>
+					<td width="40" align="center" valign="center">
+						6
+					</td>
+					<td width="40" align="center" valign="center">
+						5
+					</td>
+					<td width="40" align="center" valign="center">
+						4
+					</td>
+				</tr>
+				<tr>
+					<td width="40" align="center" valign="center">
+						3
+					</td>
+					<td width="40" align="center" valign="center">
+						2
+					</td>
+					<td width="40" align="center" valign="center">
+						1
+					</td>
+				</tr>
+			</table>
+		</table>
+		
+		<!-- ********** ********** 2.5 表单 ********** ********** -->
+		<h2>2.5 表单</h2>
+		
+		
+		<!-- ********** ********** 2.6 其它标签 ********** ********** -->
+		<h2>2.6 其它标签</h2>
+		<h3>2.6.1 &lt;span&gt;标签</h3>
+		<!--
+			<span>标签用于对文档中的行内元素进行组合。
+			<span>标签提供了一种将文本中的一部分或者文档的一部分独立出来的方式。
+			<span>标签包含的文本，可使用CSS定义样式，或使用JavaScript进行操作。
+			<span>标签没有固定的格式表现。当对它应用样式时，它才会产生视觉上的变化。
+			若不对<span>使用样式，则<span>标签间的文本与其它文本不会有任何视觉上的差异。
+		-->
+		<span>这段文字在span标签之间：行内标记，无格式。</span>
+		
+		<h3>2.6.2 &lt;hr&gt;标签</h3>
+		<!--
+			HTML5中，<hr>定义为页面内容中的主题变化，并显示为一条水平线。
+			HTML4.01中，<hr>标签仅仅显示为一条水平线。
+			HTML中，<hr>标签没有结束标签；XHTML中，<hr>标签必须被正确地关闭<hr />。
+			<hr>标签属性：
+				- align="left"、"center"、"right"：对齐方式
+				- noshade="noshade"：颜色呈现为纯色
+				- size=size_number：高度（pixels）
+				- width=width_number：宽度（pixels或%）
+			注意：
+				HTML5中，不再支持上述这些属性。
+				HTML4.01中，所有的布局属性都已废弃。
+				请使用CSS来定义样式。
+		-->
+		<hr align="center" noshade="noshade" size="6px" width="640px" />
+		
+		<h3>2.6.3 &lt;br&gt;标签</h3>
+		<!--
+			<br>标签用于插入一个简单的换行符。它是一个空标签，没有结束标签。
+			注意：
+				HTML中，<br>标签没有结束标签。
+				XHTML中，<br>标签必须被正确地关闭，比如这样：<br /> 。
+		-->
+		<span>飞雪连天射白鹿，<br />笑书神侠倚碧鸳。</span>
+		
+		<h3>2.6.4 特殊符号</h3>
+		<img src="../img/character-entities.jpg" width="320"/>
+	</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 01/03/2019
+		Updated:
+		Description: JS函数演示
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>JS函数</title>
+        <script>
+            //打印s并换行
+            function print(s) {
+                document.write(s + "<br />");
+            }
+            // print("hello");
+            // print("world");
+            // print(3.1415926);
+            // print([1, 2, 3, 4, 5, 6, 7]);
+
+            //说爱你
+            function sayLove() {
+                alert("I Love You！");
+                alert("我爱你！");
+                alert("Te Amo！");
+                alert("あいしてる！");
+            }
+            // sayLove();
+
+            //计算圆的面积
+            function calcCircleArea(radius) {
+                var pi = 3.1415926;
+                area = pi * radius * radius;
+                return area;
+            }
+            // print(calcCircleArea(2));
+
+            //查找数组中的最大值元素
+            function getMax(nums) {
+                var max = nums[0];
+                for (var i in nums) {
+                    // if (max < nums[i]) {
+                        // max = nums[i];
+                    // }
+                    max = max < nums[i] ? nums[i] : max;
+                }
+                return max;
+            }
+            // print(getMax([1, 9, 6, 7, 9, 3, 6, 0, 8, 6]));
+
+            //删除数组指定位置上的元素
+            function delElement(array, index) {
+                var temp = array[index];
+                //数组元素平移
+                for (var i = index; i < array.length - 1; i++) {
+                    array[i] = array[i + 1];
+                }
+                array[i] = temp;
+                array.pop();
+                return array;
+            }
+            letters = ["a", "b", "c", "d", "e", "f", "g"];
+            // print(delElement(letters, 2));
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

@@ -1,0 +1,37 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 03/05/2019
+		Updated:
+		Description: JavaScript字符串连接
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript字符串连接</title>
+        <script type="text/javascript">
+            var str = "Woniu";
+            var num1 = 12345;
+            var num2 = 10000;
+            var num3 = "56789";
+
+            document.write(str + num1); // Woniu12345
+            document.write("<br />"); // web页面中输出一个换行
+            document.write(num1 + num2); // 22345
+            document.write("<br />"); // web页面中输出一个换行
+            document.write("<br />" + num1 + num2); // 换行后输出1234510000
+            document.write("<br />" + (num1 + num2) + "<br />"); // 换行后输出22345然后再换一行
+            document.write(num2 + num3 + "<br />"); // 输出1000056789后换行
+            document.write(num2 + parseInt(num3) + "<br />"); //输出66789后换行
+            /* 注意：
+            如果用一个字符串类型的数字减去一个标准数字，
+            该字符串会先被转换为数字再进行减法运算 */
+            document.write(num3 - num2); //46789
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

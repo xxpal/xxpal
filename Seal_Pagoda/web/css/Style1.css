@@ -1,0 +1,66 @@
+#outer {
+	width: 450px;
+	height: 540px;
+	background-color: #7fffd4;
+	margin: 0 auto;
+	border-radius: 20px;	/* 设置最外层窗口的圆角 */
+}
+
+#top {
+	width: 200px;
+	height: 50;
+	padding-left: 20px;		/* 设置小圆点距离左边20px */
+	display: table-cell;	/* 以单元格方式处理DIV，便于实现垂直居中 */
+	vertical-align: middle;	/* 让三个小圆点垂直居中 */
+}
+
+.point {
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-left: 10;
+	border-radius: 50%;
+}
+
+.bp {
+	background-color: dodgerblue;
+}
+
+.gp {
+	background-color: darkgreen;
+}
+
+.rp {
+	background-color: orangered;
+}
+
+#screen {
+	width: 97%;
+	height: 50px;
+	background: white;
+	margin: 0;
+	border: solid 2px orangered;
+}
+
+#button {
+	width: 99%;
+	height: 420px;
+	margin: 10px auto;
+}
+
+#button div {
+	width: 24%;
+	height: 80px;
+	margin: 2px;
+	background-color: #7FFFD4;
+	float: left;
+	font-size: 30px;
+	text-align: center;
+	line-height: 80px;
+	font-family: 微软雅黑;
+}
+
+#button div:hover {
+	background-color: orangered;
+	font-size: 36px;
+}

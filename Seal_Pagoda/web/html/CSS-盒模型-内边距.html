@@ -1,0 +1,72 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: 02/28/2019
+		Updated:
+		Description: CSS-盒模型-内边距
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>CSS-盒模型-内边距</title>
+        <style type="text/css">
+            #p1 {
+                padding: 20px;
+                border: solid 2px red;
+            }
+
+            #div2 {
+                padding: 25px 50px;
+            }
+            
+            #div3 {
+                padding: 25px 50px 75px;
+            }
+            
+            #div4 {
+                padding: 25px 50px 75px 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p id="p1">
+            DIV-1的每个边拥有相等的内边距（20px）
+        </p>
+        <div id="div2">
+            DIV-2的每个边的内边距分别为：上、下（25px）、左/右（50px）
+        </div>
+        <div id="div3">
+            DIV-3的每个边的内边距分别为：上（25px）、左/右（50px）、下（75px）
+        </div>
+        <div id="div4">
+            DIV-4的每个边的内边距分别为：上（25px）、右（50px）、下（75px）、左（100px）
+        </div>
+        
+       <!-- <table border="1">
+            <tr>
+                <td class="test1">
+                    该单元格的每个边拥有相等的内边距（20px）
+                </td>
+                <td class="test2">
+                    该单元格的每个边的内边距分别为：上、下（25px）、左/右（50px）
+                </td>
+                <td class="test3">
+                    该单元格的每个边的内边距分别为：上（25px）、左/右（50px）、下（75px）
+                </td>
+                <td class="test4">
+                    该单元格的每个边的内边距分别为：上（25px）、右（50px）、下（75px）、左（100px）
+                </td>
+            </tr>
+        </table> -->
+        <!-- <br /> -->
+       <!-- <table border="1">
+            <tr>
+                <td class="test2">
+                    这个表格单元的上、下内边距是5px；左、右内边距是25px。
+                </td>
+            </tr>
+        </table> -->
+    </body>
+
+</html>

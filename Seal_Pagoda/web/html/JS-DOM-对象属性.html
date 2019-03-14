@@ -1,0 +1,32 @@
+<!doctype HTML>
+<html>
+	<!--
+		Author: Leo
+		Created: MM/DD/YYYY
+		Updated:
+		Description: 
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>这是原来的文档标题</title>
+	</head>
+
+	<body bgcolor="#7FFFD4">
+        <script>
+            document.write(document.title);         //输出页面标题
+            document.write("<br />");
+            document.title = "这是重新设置过的文档标题";  //修改页面标题
+            document.write(document.title);           //输出新设置的标题
+            document.write("<br />");
+            document.write(document.body.bgColor);  //输出页面背景色属性值
+            document.write("<br />");
+            document.write(document.URL);           //以URL编码格式输出地址
+            document.write("<br />");
+            document.write(document.lastModified);  //输出页面最后更新日期
+            document.write("<br />");
+            // document.body.bgColor = "red";       //修改页面背景色为红色
+        </script>
+		
+	</body>
+
+</html>

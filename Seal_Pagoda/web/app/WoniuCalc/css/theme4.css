@@ -1,0 +1,73 @@
+#top {
+	background-color: #696969;
+	border: 0px;
+	width: 450px;
+	margin: auto;
+	/* margin: 只针对容器有效，表示当前容器的上下左右的位置由浏览器自动处理 */
+	border-spacing: 0px;
+	/* 用于代替cellspacing */
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+#circle {
+	height: 30px;
+}
+
+/* 组合选择器，选择ID为circle的元素的下面的所有标记为span的子元素 */
+#circle span {
+	font-size: 35px;
+}
+
+#result {
+	height: 70px;
+}
+
+#result table {
+	border: 0px;
+	width: 99%;
+	margin: auto;
+	border-spacing: 2px;
+	background-color: red;
+}
+
+#result table td {
+	height: 60px;
+	background-color: dimgrey;
+}
+
+.text-red {
+	color: orangered;
+}
+
+.text-blue {
+	color: blue;
+}
+
+.text-green {
+	color: greenyellow;
+}
+
+
+#main {
+	background-color: #696969;
+	border: 0px;
+	width: 450px;
+	margin: auto;
+	border-spacing: 4px;
+}
+
+#main td {
+	background-color: #d3d3d3;
+	width: 25%;
+	height: 80px;
+	text-align: center;
+	font-size: 30px;
+	font-family: 微软雅黑;
+	border-radius: 5px;
+}
+
+#main td:hover {
+	background-color: orangered;
+	font-size: 40px;
+}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>WoniuCalc_HTML+CSS+JS实现_V2</title>
+    <style type="text/css">
+        #outer {
+            width: 450px;
+            height: 540px;
+            background-color: gray;
+            margin: 0 auto;
+            border-radius: 20px;    /* 设置最外层父窗口的圆角 */
+        }
+        #top {
+            width: 200px;
+            padding-left: 20px;     /* 让小圆点距离左边20像素 */
+            height: 50px;
+            margin: 0 auto;
+            display: table-cell;    /* 以单元格方式处理DIV，便于实现垂直居中 */
+            vertical-align: middle;  /* 让三个小圆点都垂直居中 */
+        }
+        .point {
+            width: 20px;            /* 要实现圆形，必须是一个正方形  */
+            height: 20px;
+            float: left;
+            margin-left: 10px;
+            border-radius: 50%;     /* 设置小圆点的圆角半径为宽度的一半，这样可以实现一个圆 */
+        }
+        .bg-blue {
+            background-color: dodgerblue;
+        }
+        .bg-green {
+            background-color: darkgreen;
+        }
+        .bg-red {
+            background-color: orangered;
+        }
+        #result-box {
+            width: 97%;
+            height: 50px;
+            background-color: white;
+            margin: 0 auto;
+            border: solid 2px orangered;
+        }
+        #result {
+            width: 99%;
+            height: 48px;
+            border: 0;
+            font-size: 30px;
+            text-align: right;
+            font-family: 微软雅黑;
+        }
+        #button {
+            width: 99%;
+            height: 420px;
+            margin: 10px auto;
+        }
+        #button div {
+            width: 24%;
+            height: 80px;
+            margin: 2px;
+            background-color: #7fffd4;
+            float: left;
+            font-size: 30px;
+            text-align: center;
+            line-height: 80px;
+            font-family: 微软雅黑;
+        }
+        #button div:hover {
+            background-color: orangered;   /* 针对所有按钮实现鼠标悬停效果 */
+        }
+    </style>
+
+    <script>
+
+        // 使用一个特殊的函数：eval，其作用为把一个字符串变成一段JS代码来运行
+        //var code = "100+200+300-400";
+        // document.write(code);   // 如果body当中的页面元素已经被渲染，不能再使用些方法往页面中输出
+        // alert(eval(code));
+
+        var isSymbolCanInput = true;   // true: 表示最后一个输入不是运算符，则可以输入，false: 不能被输入
+        var isEqualClicked = false;    // false: 等号没有被点击过，则可以连接新字符，true: 直接清空前面的字符串
+        var isZeroClicked = false;     // false: 0没有被点击过，可以输入 true: 零刚才被点击过，需要特别处理
+        var isPointClicked = false;    // false: 小数点没有被点击过，可以输入 true: 刚才被点击过，需要特别处理
+        var x = 0;
+
+        // 用户通过键盘输入的处理
+        function inputChar(keyEvent) {
+
+            // 长度的检查
+//            var resultValue = document.getElementById('result').value;
+//            if (resultValue.length > 10) {
+//                alert("hi");
+//            }
+
+            var code = keyEvent.keyCode;
+
+            // 按键为shift + 8 = *
+            if (keyEvent.shiftKey && code == 56) {
+                document.getElementById("result").value += "*";
+            }
+            // 按键为shift + 5 = %
+            else if (keyEvent.shiftKey && code == 53) {
+                document.getElementById("result").value += "%";
+            }
+            // 按键为数字
+            else if (code >= 48 && code <= 57) {
+                document.getElementById("result").value += code - 48;
+            }
+
+            // 按键为+
+            if (code == 187) {
+                document.getElementById("result").value += "+";
+            }
+            // 按键为-
+            if (code == 189) {
+                document.getElementById("result").value += "-";
+            }
+            // 按键为/
+            if (code == 191) {
+                document.getElementById("result").value += "/";
+            }
+
+            // 按回车键，正常进行运算
+            if (code == 13) {
+                doCalc();
+            }
+        }
+
+        function clickNumber(number) {
+
+//            var canInput = true;
+//
+            // 文本框元素.value可以获取或修改其文本框的值
+            var resultValue = document.getElementById('result').value;
+//
+//            // 如果用户按下的是零，需要特别处理，不能成为整数的开始位
+//            if (number == "0") {
+//                isZeroClicked = true;
+//                document.getElementById('result').value += number;
+//            }
+//
+//            if (isZeroClicked) {
+//                if (isPointClicked) {
+//                    canInput = true;
+//                }
+//                else {
+//                    canInput = false;
+//                }
+//            }
+
+            if (resultValue.length <= 23) {
+                if (isEqualClicked == true) {  // ==> if (isEqualClicked),  if (!isEqualClicked)
+                    document.getElementById('result').value = number;
+                    isEqualClicked = false;
+                }
+                else {
+                    document.getElementById('result').value += number;
+                }
+                isSymbolCanInput = true;
+            }
+            else {
+                alert("你的长度过长，无法继续输入.");
+            }
+        }
+
+        function clickSymbol(symbol) {
+            var resultValue = document.getElementById('result').value;
+            var code = resultValue.charCodeAt(resultValue.length-1);
+            if (code != 37 && code != 42 && code != 43 && code != 45 && code != 47) {
+                document.getElementById('result').value += symbol;
+            }
+            else {
+                var temp = resultValue.substr(0, resultValue.length-1);
+                document.getElementById('result').value = temp + symbol;
+            }
+
+//            if (isSymbolCanInput) {
+//                document.getElementById('result').value += symbol;
+//            }
+//            isSymbolCanInput = false;
+
+            isEqualClicked = false;
+        }
+
+        function clickPoint(symbol) {
+            document.getElementById('result').value += '.';
+            isPointClicked = true;
+        }
+
+        function doCalc() {
+            isEqualClicked = true;  // 后面点击数字时，先清空前面的内容
+            isPointClicked = false;
+            var expression = document.getElementById("result").value;
+            if (expression.length >= 3) {
+                var result = eval(expression);
+                document.getElementById("result").value = result;
+            }
+            else {
+                alert("你的运算表达式不正确!");
+            }
+        }
+
+        function deleteLast() {
+            var oldValue = document.getElementById("result").value;
+            var newValue = oldValue.substr(0, oldValue.length-1);
+            document.getElementById("result").value = newValue;
+            isZeroClicked = false;
+        }
+
+    </script>
+</head>
+<body onkeydown="inputChar(window.event)">
+    <div id="outer">
+        <div id="top">
+            <div class="point bg-red"></div>
+            <div class="point bg-blue"></div>
+            <div class="point bg-green"></div>
+        </div>
+
+        <div id="result-box">
+            <input type="text" id="result" readonly="readonly"/>
+        </div>
+
+        <div id="button">
+            <!--<div onmouseover="this.style.backgroundColor='red'" onmouseout="this.style.backgroundColor='#7fffd4'">AC</div>-->
+            <div on>AC</div>   <!--清空结果框的崆-->
+            <div>+/-</div>     <!--在第一数字之前加上正号或负号-->
+            <div onclick="clickSymbol('%')">%</div>
+            <div onclick="clickSymbol('/')">÷</div>
+            <!--<div onclick="document.getElementById('result').value += '7'">7</div>-->
+            <div onclick="clickNumber('7')">7</div>
+            <div onclick="clickNumber('8')">8</div>
+            <div onclick="clickNumber('9')">9</div>
+            <div onclick="clickSymbol('*')">*</div>
+            <div onclick="clickNumber('4')">4</div>
+            <div onclick="clickNumber('5')">5</div>
+            <div onclick="clickNumber('6')">6</div>
+            <div onclick="clickSymbol('-')">-</div>
+            <div onclick="clickNumber('1')">1</div>
+            <div onclick="clickNumber('2')">2</div>
+            <div onclick="clickNumber('3')">3</div>
+            <div onclick="clickSymbol('+')">+</div>
+            <div onclick="clickNumber('0')">0</div>
+            <div onclick="deleteLast()"><-</div>
+            <div onclick="clickPoint()">.</div>
+            <div onclick="doCalc()">=</div>
+        </div>
+    </div>
+</body>
+</html>

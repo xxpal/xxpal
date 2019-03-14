@@ -1,0 +1,36 @@
+<!doctype HTML>
+<html>
+    <!--
+		Author: Leo
+		Created: MM/DD/YYYY
+		Updated:
+		Description: 
+	-->
+    <head>
+        <meta charset="utf-8">
+        <title>DOM-TagName查找</title>
+    </head>
+
+    <body>
+        <div id="div1">这是第一个div</div>
+        <div id="div2">这是第二个div</div>
+        <div id="div3">这是第三个div</div>
+        <a href="http://www.baidu.com/">百度一下</a><br />
+        <a href="http://www.woniuxy.com/">蜗牛学院</a><br />
+        <hr />
+        <script>
+            //根据标签名获取所有div元素,然后遍历输出其内容
+            var allDiv = document.getElementsByTagName("div");
+            for (var i=0; i<allDiv.length; i++) {
+                document.write("<br />");
+                document.write("div的文本是：" + allDiv[i].innerHTML);
+            }
+            document.write("<p />");
+            
+            //通过标签名获取所有超链接,然后输出第二个超链接的地址
+            var allLink = document.getElementsByTagName("a");
+            document.write("第二个超链接是：" + allLink[1].href);
+        </script>
+    </body>
+
+</html>
