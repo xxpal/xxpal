@@ -3,6 +3,7 @@ from flask import Flask, session
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def hello() -> str:
     return 'Hello from the simple webapp.'
