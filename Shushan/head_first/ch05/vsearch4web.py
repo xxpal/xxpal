@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, escape
 from vsearch import search4letters
-import mysql.connector  # Import the driver
+# import mysql.connector  # Import the driver
 
 app = Flask(__name__)
 

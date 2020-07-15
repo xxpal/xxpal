@@ -1,8 +1,8 @@
-from flask import Flask
+from flask import Flask     # import the Flask class from the flask module
 from vsearch import search4letters
 
 
-app = Flask(__name__)
+app = Flask(__name__)       # Create an instance/object of type Flask and assign it to “app” variable
 
 
 """
@@ -12,6 +12,8 @@ app = Flask(__name__)
 3) The route decorator then waits for any output produced by the decorated function before
    returning the output to the server, which then returns it to the waiting web browser.
 """
+
+
 @app.route('/')         # Flask's route decorator
 def hello() -> str:     # Associate the URL "/" with the "hello" function
     return 'Hello World from Flask!'
