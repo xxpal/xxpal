@@ -15,7 +15,13 @@ def do_search() -> str:
     # The 'request' object contains a dictionary attribute called 'form' to access to HTML form's data
     phrase = request.form['phrase']
     letters = request.form['letters']
-    return str(search4letters(phrase, letters))
+    title = 'Here are your results: '
+    results = str(search4letters(phrase, letters))
+    return render_template('results.html',
+                           the_title=title,
+                           the_phrase=phrase,
+                           the_letters=letters,
+                           the_results=results,)
 
 
 @app.route('/entry')

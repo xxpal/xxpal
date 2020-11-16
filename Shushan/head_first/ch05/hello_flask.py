@@ -24,4 +24,4 @@ def do_search() -> str:
     return str(search4letters('life, the universe, and everything', 'eiru,!'))
 
 
-app.run()
+app.run()   # Start Flask WebApp
