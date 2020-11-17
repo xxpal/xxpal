@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, escape
 from vsearch import search4letters
 
 
@@ -10,7 +10,10 @@ def log_request(req: 'flask_request', res: str) -> None:
     The value of 'req' and 'res' is appended as one line to a file called 'vsearch.log'.
     """
     with open('vsearch.log', 'a') as log:
-        print(req, res, file=log)
+        # Log each web request in a single line,
+        # and with a vertical bar delimiting each logged data item.
+        # Print 4 items in one call with 'sep' argument.
+        print(req.form, req.remote_addr, req.user_agent, res, file=log, sep='|')
 
 
 @app.route('/search4', methods=['POST'])
@@ -39,9 +42,16 @@ def entry_page() -> 'html':
 
 @app.route('/viewlog')
 def view_the_log() -> str:
+    contents = []   # Create a new empty list to store logs as list of lists
     with open('vsearch.log') as log:
-        contents = log.read()
-    return contents
+        # Loop through each line in the "log" file stream
+        for line in log:
+            contents.append([])     # Append a new, empty list to "contents"
+            # Split each line (| as the delimiter), then process each item in the resulting "split list"
+            for item in line.split('|'):
+                # Append the escaped data to the end of the list at the end of "contents"
+                contents[-1].append(escape(item))
+    return str(contents)
 
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 def log_request(req: 'flask_request', res: str) -> None:
     """Log details of the web request and the results.
-    The value of 'req' and 'res' is appended as on line to a file called 'vsearch.log'.
+    The value of 'req' and 'res' is appended as one line to a file called 'vsearch.log'.
     """
     with open('vsearch.log', 'a') as log:
         # Log each web request in a single line,
